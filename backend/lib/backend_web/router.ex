@@ -19,6 +19,17 @@ defmodule BackendWeb.Router do
     get "/", PageController, :index
   end
 
+
+  forward "/graphql",
+  Absinthe.Plug,
+  schema: AppnameWeb.Schema
+
+  # For the GraphiQL interactive interface, a must-have for happy frontend devs.
+  forward "/graphiql",
+  Absinthe.Plug.GraphiQL,
+  schema: AppnameWeb.Schema,
+  interface: :simple
+
   # Other scopes may use custom stacks.
   # scope "/api", BackendWeb do
   #   pipe_through :api
