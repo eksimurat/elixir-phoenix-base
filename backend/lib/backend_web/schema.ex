@@ -1,4 +1,3 @@
-# /lib/appname_web/schema.ex
 defmodule AppnameWeb.Schema do
   use Absinthe.Schema
   import_types Absinthe.Type.Custom
