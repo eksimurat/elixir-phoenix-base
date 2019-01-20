@@ -45,7 +45,8 @@ defmodule Backend.MixProject do
       {:plug_cowboy, "~> 2.0"},
       {:absinthe, "~> 1.4.0"},
       {:absinthe_plug, "~> 1.4"},
-      {:poison, "~> 3.1.0"} # JSON parser, works with Absinthe out of the box 
+      {:poison, "~> 3.1.0"}, # JSON parser, works with Absinthe out of the box 
+      {:cors_plug, "~> 1.5"},
     ]
   end
 

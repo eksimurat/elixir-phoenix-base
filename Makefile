@@ -1,4 +1,4 @@
-.PHONY: list start stop status sh all
+.PHONY: list start stop status sh all frontend
 .DEFAULT_GOAL := start
 
 COMPOSE = docker-compose -p $(PROJECT)
@@ -22,3 +22,6 @@ sh:
 all: 
 	chmod +x entrypoint.sh
 	./entrypoint.sh
+
+frontend: 
+	$(COMPOSE) run --rm -p 8080:8080 frontend bash

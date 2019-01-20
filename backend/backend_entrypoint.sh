@@ -21,29 +21,27 @@ fi
 
 
 until cd backend
-do
-  echo "$(date) - waiting for moving to the backend folder"
-  sleep 2
-done
+ do
+   echo "$(date) - waiting for moving to the backend folder"
+   sleep 2
+ done
 
-until cd assets
-do
-  echo "$(date) - waiting for moving to the assets folder"
-  sleep 2
-done
+# until cd assets
+# do
+#   echo "$(date) - waiting for moving to the assets folder"
+#   sleep 2
+# done
 
 
 
-if [ ! -d "node_modules" ]; then
-  npm install
+# if [ ! -d "node_modules" ]; then
+#   npm install
+# fi
+
+
+if [ ! -d "deps" ]; then
+   mix deps.get
 fi
-
-
-until cd ..
-do
-  echo "$(date) - waiting for moving to the backend folder"
-  sleep 2
-done
 
 
 
