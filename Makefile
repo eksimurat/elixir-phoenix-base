@@ -1,4 +1,4 @@
-.PHONY: list start stop status sh
+.PHONY: list start stop status sh all
 .DEFAULT_GOAL := start
 
 COMPOSE = docker-compose -p $(PROJECT)
@@ -17,4 +17,8 @@ status:
 	$(COMPOSE) ps
 
 sh:
-	$(COMPOSE) run --rm backend bash
+	$(COMPOSE) run --rm -p 5432:5432 -p 4000:4000 backend bash
+
+all: 
+	chmod +x entrypoint.sh
+	./entrypoint.sh

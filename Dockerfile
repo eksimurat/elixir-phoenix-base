@@ -5,6 +5,12 @@ LABEL maintainer="Murat Eksi"
 
 # Add bash to the image
 RUN apk add --update bash
+# Add inotify to the image
+RUN apk add --update inotify-tools
+# Add node to the image
+RUN apk add --update nodejs nodejs-npm
+
+RUN apk add --update postgresql-client
 
 # Configure required environment
 ENV MIX_ENV dev
@@ -26,3 +32,6 @@ RUN mix archive.install hex phx_new 1.4.0 --force
 
 # Copy all application files
 COPY . $WORKSPACE
+
+
+#CMD ["make", "all"]
